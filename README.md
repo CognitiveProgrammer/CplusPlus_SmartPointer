@@ -14,7 +14,7 @@
 
 *The modules below (1,2,&3) are dedicated to respective pointers. Please do not escape the sequence as module 2 refers to module 1 and module 3 refers to module 1 & 2.*
 
-[Module - 1 : Usage of shared_ptr<>](SmartPointer_Trilogy\Module1_shared_ptr)
+[Module - 1 : Usage of shared_ptr<>](https://github.com/9lean/CplusPlus_SmartPointer/tree/master/CplusPlus_SmartPointer/Module1_shared_ptr)
 
 *This module will describe the properties of shared_ptr<> as well as how the use this smart pointer in C++ programs*
 
