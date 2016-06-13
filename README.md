@@ -18,7 +18,7 @@
 
 *This module will describe the properties of shared_ptr<> as well as how the use this smart pointer in C++ programs*
 
-[Module - 2 : Usage of unique_ptr<>]()
+[Module - 2 : Usage of unique_ptr<>](https://github.com/9lean/CplusPlus_SmartPointer/tree/master/CplusPlus_SmartPointer/Module2_unique_ptr)
 
 *This module will describe the properties of unique_ptr<> as well as how the use this smart pointer in C++ programs*
 

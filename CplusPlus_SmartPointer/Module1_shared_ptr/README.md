@@ -23,7 +23,7 @@ shared_ptr<uTYpe3> sp2;
 ```
 ### 1.2 shared_ptr : *No need to clear memory explicitly*
 
-*The main advantage of shared pointers are that, we should not worry about calling delete or cleaning the memory in explicit manner. The shared point will take care of it once it goes out of scope*
+*The main advantage of shared pointers are that, we should not worry about calling delete or cleaning the memory in explicit manner. The shared pointer will take care of it once it goes out of scope*
 
 *here is the example of using the shared pointer with built in type* **int**
 
@@ -53,7 +53,7 @@ int main() {
 }
 
 ```
-*In this example above you can see the Destructor getting called as a result of releasing memory
+*In this example above you can see the Destructor getting called as a result of releasing memory*
 
 ### 1.3 shared_ptr : *Ownership and Reference Counts*
 
@@ -113,21 +113,13 @@ int main() {
 	return 0;
 }
 ```
-* In this example, the object Sample will be destroyed in the Func() iteself as the ownership is not taken by another shared_ptr. The out will be*
+*In this example, the object Sample will be destroyed in the Func() iteself as the ownership is not taken by another shared_ptr. The out will be*
 
 * 1 - Enter Main
 * 2 - Enter Function
 * 3 - Sample Constructor
-* 4 - Exit Function
-* 5 - Sample Destructor
+* 4 - Sample Destructor
+* 5 - Exit Function
 * 6 - Exit Main
 
-### 1.4 lambdas : *Checking Reference Counts*
-
-*The round brackets are used to pass the Parameters (just like any other function). The example below calls the function in place by passing a integer parameter*
-
-```
-[](int val) {
-		cout << "The value passed in this function is ->" << val<< endl;
-	}(100);
-```
+*Here the shared_ptr<> will destroy the Sample Object as ownership was not taken by the calling **func()** *even if its returned from the function*
