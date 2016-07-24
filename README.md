@@ -22,9 +22,9 @@
 
 *This module will describe the properties of unique_ptr<> as well as how the use this smart pointer in C++ programs*
 
-*This program will use examples of module 1 to properly edemonostrate the difference between these two pointers.*
+*This program will use examples of module 1 to properly demonostrate the difference between these two pointers.*
 
-[Module - 3 : Using of weak_ptr<>]()
+[Module - 3 : Using of weak_ptr<>](https://github.com/9lean/CplusPlus_SmartPointer/tree/master/Module3_weak_ptr)
 
 *This module will describe the properties of weak_ptr<> as well as how the use this smart pointer in C++ programs*
 
