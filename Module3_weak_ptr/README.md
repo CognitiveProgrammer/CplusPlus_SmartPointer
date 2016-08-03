@@ -1,6 +1,6 @@
-# Module - 1 : Usage of weak_ptr<>
+# Module - 3 : Usage of weak_ptr<>
 
-### 1.1 unique_ptr<> : *Syntax*
+### 3.1 unique_ptr<> : *Syntax*
 
 *The weak_ptr<> syntax is similar to shared_ptr<> and is consists of*
 
@@ -12,7 +12,7 @@
 
 * weak_ptr<> can't be instantiated
 
-### 1.2 weak_ptr : *Why weak_ptr<> is weak?*
+### 3.2 weak_ptr : *Why weak_ptr<> is weak?*
 
 *Unlike shared_ptr<> & unique_ptr<>, weak_ptr<> doesn't takes the ownership of the memory contained by it.
 
@@ -36,7 +36,7 @@ int main() {
 ```
 *In this example above you can see that the Object reference count in shared_pointer doesn't incremented*
 
-### 1.3 Difference with shared_ptr<> : *Where it can be used?*
+### 3.3 Difference with shared_ptr<> : *Where it can be used?*
 
 *weak_ptr<> doesn't takes the Ownership, so it shall be used only at the places where one doesn't need to worry about maintaining Ownership.*
 

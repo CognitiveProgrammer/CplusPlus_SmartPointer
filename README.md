@@ -30,7 +30,7 @@
 
 *The weak_ptr<> is generally used with shared_ptr<> and this module will use both of them drastically*
 
-[Module - 4 : The std::move semantics]()
+[Module - 4 : The std::move semantics](https://github.com/9lean/CplusPlus_SmartPointer/tree/master/Module4_move_semantics)
 
 *This module will describe the move semantics and how std::move can be used with shared_ptr<> and unique_ptr<>.*
 

@@ -1,6 +1,6 @@
-# Module - 1 : Usage of unique_ptr<>
+# Module - 2 : Usage of unique_ptr<>
 
-### 1.1 unique_ptr<> : *Syntax*
+### 2.1 unique_ptr<> : *Syntax*
 
 *The unique_ptr<> syntax is similar to shared_ptr<> and is consists of*
 
@@ -10,7 +10,7 @@
 
 *All syntactically valid syntax rules of shared_ptr<> will be applicable to unique_ptr<>*
 
-### 1.2 unique_ptr : *No need to clear memory explicitly*
+### 2.2 unique_ptr : *No need to clear memory explicitly*
 
 *Like shared_ptr<>, there is no need to call delete or clean the memory in explicit manner. The unique pointer  will take care of it once it goes out of scope*
 
@@ -32,7 +32,7 @@ int main() {
 ```
 *In this example above you can see the Destructor getting called as a result of releasing memory*
 
-### 1.3 Difference with shared_ptr<> : *Ownership cannot be transferred*
+### 2.3 Difference with shared_ptr<> : *Ownership cannot be transferred*
 
 *shared_ptr<> maintains reference counts where more than one shared_ptr<> can refere to a single object.*
 
@@ -47,7 +47,7 @@ int main() {
 
 ```
 
-### 1.4 The Move Semantics : Transferring unique_ptr<> Ownership
+### 2.4 The Move Semantics : Transferring unique_ptr<> Ownership
 
 *Its possible to transfer the ownership using std::move(). However once std::move() is called then moved pointer will no longer hold the ownership. To understand look at the example code below*
 
@@ -62,7 +62,7 @@ int main() {
 
 ```
 
-### 1.5 Ownership of unique_ptr<> : Returning from a Function
+### 2.5 Ownership of unique_ptr<> : Returning from a Function
 
 *Just like shared_ptr<>, unique_ptr<> can also be returned from a Function. To understand look at code below which is exactly similar to what we did with shared_ptr<>*
 
@@ -112,7 +112,7 @@ unique_ptr<Sample> Func() {
 }
 
 ```
-### 1.6 unique_ptr<> : usage of make_unique<>()
+### 2.6 unique_ptr<> : usage of make_unique<>()
 
 *The* ***C++14*** *specification has added the support of make_unique<>(). its usage is similar to that of make_shared<>() and should be used instead of* **new**
 
