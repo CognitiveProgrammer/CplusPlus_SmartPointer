@@ -27,7 +27,7 @@ shared_ptr<uTYpe3> sp2;
 
 *here is the example of using the shared pointer with built in type* **int**
 
-*Don't forget to use header file directive **#include < memory >** *and using std namespace for using smart pointers*
+*Don't forget to use header file directive* **#include < memory >** *and using std namespace for using smart pointers*
 
 ```
 shared_ptr<int> sp (new int);
@@ -126,7 +126,7 @@ int main() {
 
 ### 1.3 shared_ptr : *Usage of make_shared<>()*
 
-*Till now we're using **new** *to allocate the memory for the objects contained in shared_ptr<>. The standard library has a builtin function for it and called as make_shared<>. Here is how we can use it.*
+*Till now we're using* **new** *to allocate the memory for the objects contained in shared_ptr<>. The standard library has a builtin function for it and called as make_shared<>. Here is how we can use it.*
 
 ```
 class Sample {
