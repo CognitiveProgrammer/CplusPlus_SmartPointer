@@ -8,13 +8,15 @@
 2. < > ***Angle brackets which can have built in or user defined type***
 3. var ***A variable name representing the weak_ptr***
 
-*All other syntactically valid syntax rules of shared_ptr<> will be applicable to weak_ptr<>*
+*All other syntactically valid syntax rules of shared_ptr<> will be applicable to weak_ptr<> with one exception*
+
+* weak_ptr<> can't be instantiated
 
 ### 1.2 weak_ptr : *Why weak_ptr<> is weak?*
 
 *Unlike shared_ptr<> & unique_ptr<>, weak_ptr<> doesn't takes the ownership of the memory contained by it.
 
-*here is the example of usage with class Sample*
+*Here is the example of usage with class Sample*
 
 ```
 class Sample {
