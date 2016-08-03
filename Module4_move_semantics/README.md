@@ -1,65 +1,42 @@
-# Module - 1 : Usage of weak_ptr<>
+# Module - 4 : Usage of std::move with Smart pointers
 
-### 1.1 unique_ptr<> : *Syntax*
+### 4.1 *Usage*
 
-*The weak_ptr<> syntax is similar to shared_ptr<> and is consists of*
+*As demonstrated in the example of unique_ptr<>, the move is used to transfer the ownership and can be used by both unique_ptr<> as well as by shared_ptr<>*
 
-1. weak_ptr  ***name of the smart pointer***
-2. < > ***Angle brackets which can have built in or user defined type***
-3. var ***A variable name representing the weak_ptr***
+### 4.2 std::move : *usage with unique_ptr<>*
 
-*All other syntactically valid syntax rules of shared_ptr<> will be applicable to weak_ptr<> with one exception*
-
-* weak_ptr<> can't be instantiated
-
-### 1.2 weak_ptr : *Why weak_ptr<> is weak?*
-
-*Unlike shared_ptr<> & unique_ptr<>, weak_ptr<> doesn't takes the ownership of the memory contained by it.
-
-*Here is the example of usage with class Sample*
+*In unique_ptr<>, move is used to transfer the ownership from one unique_ptr<> to another, which is otherwise not possible*
 
 ```
-class Sample {
-public:
-	Sample() { cout << "Cons.." << endl; }
-	~Sample() { cout << "Dest.." << endl; }
-};
-
 int main() {
-	shared_ptr<Sample> sp = make_shared<Sample>();
-	cout << sp.use_count() << endl; // Prints 1
-	weak_ptr<Sample> wp = sp;
-	cout << sp.use_count() << endl; // Still Prints 1
-	return 0;
-}
-
-```
-*In this example above you can see that the Object reference count in shared_pointer doesn't incremented*
-
-### 1.3 Difference with shared_ptr<> : *Where it can be used?*
-
-*weak_ptr<> doesn't takes the Ownership, so it shall be used only at the places where one doesn't need to worry about maintaining Ownership.*
-
-*For example, in the code below, the weak_ptr<> will be invalid once the code comes out of the function*
-
-```
-class Sample {
-public:
-	Sample() { cout << "Cons.." << endl; }
-	~Sample() { cout << "Dest.." << endl; }
-};
-
-weak_ptr<Sample> func() {
-	shared_ptr<Sample> Sp = make_shared<Sample>();
-	return Sp;
-}
-
-int main() {
-	weak_ptr<Sample> Wp = func();
-	cout << "End of Main" << endl;
+	unique_ptr<int> up (new int);
+	// transfer the ownership
+	unique_ptr<int> up2 = move(up);
+	// After this like, up doesn't holds the ownership of the
+	// object create by new int
 	return 0;
 }
 
 ```
 
-*In the example above, "Wp" will be invalid in main() as it doesn't takes the ownership and was destroyed by shared_ptr<> before coming out of func() scope*
+### 4.3 std::move : *usage with unique_ptr<>*
+
+*shared_ptr<>, as the name suggests, multiple pointers can share the ownership with the help of reference count.
+
+However, std::move behaves in the similar way as with unique_ptr<>. it will transfer the ownership (and not increment the reference count) of the shared_ptr*
+
+```
+int main() {
+	shared_ptr<int> sp (new int);
+	cout<<sp.use_count()<<endl; // prints 1
+	// transfer the ownership
+	shared_ptr<int> sp2 = move(sp);
+	// After this like, up doesn't holds the ownership of the
+	// object create by new int
+	cout<<sp.use_count()<<endl; // prints 0
+	cout<<sp2.use_count()<<endl; // prints 1
+	return 0;
+}
+
+```
