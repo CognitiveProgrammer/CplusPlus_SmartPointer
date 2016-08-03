@@ -27,7 +27,7 @@ shared_ptr<uTYpe3> sp2;
 
 *here is the example of using the shared pointer with built in type* **int**
 
-*Don't forget to use header file directive **#include < memory >** *and using std namespace for using smart pointers*
+*Don't forget to use header file directive* **#include < memory >** *and using std namespace for using smart pointers*
 
 ```
 shared_ptr<int> sp (new int);
@@ -42,7 +42,7 @@ cout << *sp << endl;
 ```
 class Sample {
 public:
-	Sample() { cout << "Sample Constuctor" << endl; }
+	Sample() { cout << "Sample Constructor" << endl; }
 	~Sample() { cout << "Sample Destructor" << endl; }
 	void publicFn() { cout << "This is public function of class" << endl; }
 };
@@ -68,7 +68,7 @@ int main() {
 ```
 class Sample {
 public:
-	Sample() { cout << "Sample Constuctor" << endl; }
+	Sample() { cout << "Sample Constructor" << endl; }
 	~Sample() { cout << "Sample Destructor" << endl; }
 };
 
@@ -123,3 +123,21 @@ int main() {
 * 6 - Exit Main
 
 *Here the shared_ptr<> will destroy the Sample Object as ownership was not taken by the calling **func()** *even if its returned from the function*
+
+### 1.3 shared_ptr : *Usage of make_shared<>()*
+
+*Till now we're using* **new** *to allocate the memory for the objects contained in shared_ptr<>. The standard library has a builtin function for it and called as make_shared<>. Here is how we can use it.*
+
+```
+class Sample {
+public:
+	Sample() { cout << "Constructor make_shared" << endl; }
+	~Sample() { cout << "Destructor make_shared" << endl; }
+};
+int main() {
+	shared_ptr<Sample> sp = make_shared<Sample>();
+	return 0;
+}
+
+```
+*The make_shared<> call is not only a clean way to initializing shared_ptr<>, but also fast in memory allocation as compared to new. That's why its recommended to use make_shared<> instead of new*

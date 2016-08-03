@@ -112,3 +112,21 @@ unique_ptr<Sample> Func() {
 }
 
 ```
+### 1.6 unique_ptr<> : usage of make_unique<>()
+
+*The* ***C++14*** *specification has added the support of make_unique<>(). its usage is similar to that of make_shared<>() and should be used instead of* **new**
+
+```
+class Sample {
+public:
+	Sample() { cout << "Constructor make_unique" << endl; }
+	~Sample() { cout << "Destructor make_unique" << endl; }
+};
+int main() {
+	unique_ptr<Sample> sp = make_unique<Sample>();
+	return 0;
+}
+
+```
+
+* ***Note : C++14 compilers are adding the support of make_unique<>(), it may happens that your compiler may lack support it***
