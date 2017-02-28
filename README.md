@@ -1,10 +1,10 @@
 # C++14 Smart Pointers : The trilogy which must be used day in and day out
 
-*Prior to arrival of smart pointers as part of boost library, C++ was notorious for memory leaks and  errors related to memory handling. In fact it was very difficult to track memory in big programs, the issue of ownership and other problems*
+*Prior to arrival of smart pointers as part of boost library, C++ was notorious for memory leaks and errors related to memory handling. In fact it was very difficult to track memory usage and ownerships in relatively big programs*
 
-*C++11 and C++14 has taken a great leap forward with regard to memory management and have multiple smart pointers for the same.*
+*C++11 and C++14 has taken a great leap forward with regard to memory management and have standardize the smart pointers for the same. This can potentially reduce if not altogether remove the problems associated with memory management in C++*
 
-*This can be called as trilogy of smart pointers and known as*
+*There are multiple sets of smart pointers which are extremely useful, however as a normal programmer we'll end up using at most 3 of them. These 3 smart pointers are called as trilogy and is known as*
 
 * shared_ptr<>
 * unique_ptr<>
