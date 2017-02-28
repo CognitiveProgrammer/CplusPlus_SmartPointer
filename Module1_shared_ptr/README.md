@@ -141,3 +141,25 @@ int main() {
 
 ```
 *The make_shared<> call is not only a clean way to initializing shared_ptr<>, but also fast in memory allocation as compared to new. That's why its recommended to use make_shared<> instead of new*
+
+## 1.4 : Using shared_ptr<> for Arrays
+
+_The usage of shared_ptr with arrays is slightly complicated as we need to explicitely tell the shared_ptr to call array deleter instead of normal deleted. if we miss to do that then it will result in a memory leak._
+
+_For example a shared_ptr with arrays can be created as_
+
+```
+shared_ptr<int> sp(new int[10]);
+
+```
+_This will create 10 integers but will deleter only 1 which will result in memory leak despite of using shared_ptr_ 
+
+_The code should instead be written as_ 
+
+```
+shared_ptr<int> sp(new int[10], default_delete<int[]>());
+
+```
+_The default_delete will make sure that_ `delete[]` _is called to clean up memory occupied by array_.
+
+***NOTE: Array can't be created using make_shared as there is no way to provide default delete with make_shared
