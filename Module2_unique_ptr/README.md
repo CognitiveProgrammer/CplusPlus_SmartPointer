@@ -128,5 +128,12 @@ int main() {
 }
 
 ```
+## 2.7 : Using uniqoe_ptr<> for Arrays
+
+_Unlike shared_ptr<>, unique_ptr<> is quiet tolerat to the creation of arrays. It can be done simply by write the following code with make_unique()_ 
+
+```
+unique_ptr<A[]> sp = make_unique<A[]>(10);
+```
 
 * ***Note : All C++14 compilers supports make_unique<>()***
