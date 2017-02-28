@@ -129,4 +129,4 @@ int main() {
 
 ```
 
-* ***Note : C++14 compilers are adding the support of make_unique<>(), it may happens that your compiler may lack support it***
+* ***Note : All C++14 compilers supports make_unique<>()***
