@@ -23,11 +23,11 @@ shared_ptr<uTYpe3> sp2;
 ```
 ### 1.2 shared_ptr : *No need to clear memory explicitly*
 
-*The main advantage of shared pointers are that, we should not worry about calling delete or cleaning the memory in explicit manner. The shared pointer will take care of it once it goes out of scope*
+*The main advantage of shared pointers is that, we should not worry about calling delete or cleaning the memory in an explicit manner. The shared pointer will take care of it once it goes out of scope*
 
 *here is the example of using the shared pointer with built in type* **int**
 
-*Don't forget to use header file directive* **#include < memory >** *and using std namespace for using smart pointers*
+*Don't forget to use a header file directive* **#include < memory >** *and using std namespace for using smart pointers*
 
 ```
 shared_ptr<int> sp (new int);
@@ -53,7 +53,7 @@ int main() {
 }
 
 ```
-*In this example above you can see the Destructor getting called as a result of releasing memory*
+*In this example above, we can see the Destructor is getting called as a result of releasing memory*
 
 ### 1.3 shared_ptr : *Ownership and Reference Counts*
 
@@ -113,7 +113,7 @@ int main() {
 	return 0;
 }
 ```
-*In this example, the object Sample will be destroyed in the Func() iteself as the ownership is not taken by another shared_ptr. The out will be*
+*In this example, the object Sample will be destroyed in the Func() itself as the ownership is not taken by another shared_ptr. The out will be*
 
 * 1 - Enter Main
 * 2 - Enter Function
@@ -124,9 +124,9 @@ int main() {
 
 *Here the shared_ptr<> will destroy the Sample Object as ownership was not taken by the calling **func()** *even if its returned from the function*
 
-### 1.3 shared_ptr : *Usage of make_shared<>()*
+### 1.4 shared_ptr : *Usage of make_shared<>()*
 
-*Till now we're using* **new** *to allocate the memory for the objects contained in shared_ptr<>. The standard library has a builtin function for it and called as make_shared<>. Here is how we can use it.*
+*Till now we're using* **new** *to allocate the memory for the objects contained in shared_ptr<>. The standard library has a built in function for it and called as make_shared<>. Here is how we can use it.*
 
 ```
 class Sample {
@@ -140,11 +140,11 @@ int main() {
 }
 
 ```
-*The make_shared<> call is not only a clean way to initializing shared_ptr<>, but also fast in memory allocation as compared to new. That's why its recommended to use make_shared<> instead of new*
+*The make_shared<> call is not only a clean way to initializing shared_ptr<>, but also fast in memory allocation as compared to new. That's why it's recommended to use make_shared<> instead of new*
 
-## 1.4 : Using shared_ptr<> for Arrays
+## 1.5 : Using shared_ptr<> for Arrays
 
-_The usage of shared_ptr with arrays is slightly complicated as we need to explicitely tell the shared_ptr to call array deleter instead of normal deleted. if we miss to do that then it will result in a memory leak._
+_The usage of shared_ptr with arrays is slightly complicated as we need to explicitly tell the shared_ptr to call array deleter instead of normal deleted. if we miss to do that then it will result in a memory leak._
 
 _For example a shared_ptr with arrays can be created as_
 
@@ -152,7 +152,7 @@ _For example a shared_ptr with arrays can be created as_
 shared_ptr<int> sp(new int[10]);
 
 ```
-_This will create 10 integers but will deleter only 1 which will result in memory leak despite of using shared_ptr_ 
+_This will create 10 integers, but will deleter only 1 which will result in memory leaks despite of using shared_ptr_ 
 
 _The code should instead be written as_ 
 
@@ -160,6 +160,6 @@ _The code should instead be written as_
 shared_ptr<int> sp(new int[10], default_delete<int[]>());
 
 ```
-_The default_delete will make sure that_ `delete[]` _is called to clean up memory occupied by array_.
+_The default_delete will make sure that_ `delete[]` _is called to clean up the memory occupied by the array_.
 
 ***NOTE: Array can't be created using make_shared as there is no way to provide default delete with make_shared
