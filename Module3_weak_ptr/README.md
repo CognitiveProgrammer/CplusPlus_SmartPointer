@@ -14,7 +14,7 @@
 
 ### 3.2 weak_ptr : *Why weak_ptr<> is weak?*
 
-*Unlike shared_ptr<> & unique_ptr<>, weak_ptr<> doesn't takes the ownership of the memory contained by it.
+*Unlike shared_ptr<> & unique_ptr<>, weak_ptr<> doesn't take the ownership of the memory contained by it.*
 
 *Here is the example of usage with class Sample*
 
@@ -34,11 +34,11 @@ int main() {
 }
 
 ```
-*In this example above you can see that the Object reference count in shared_pointer doesn't incremented*
+*In this example above, we can see that the Object reference count in shared_pointer doesn't incremented*
 
 ### 3.3 Difference with shared_ptr<> : *Where it can be used?*
 
-*weak_ptr<> doesn't takes the Ownership, so it shall be used only at the places where one doesn't need to worry about maintaining Ownership.*
+*weak_ptr<> doesn't take the Ownership, so it shall be used only in the places where one doesn't need to worry about maintaining the Ownership.*
 
 *For example, in the code below, the weak_ptr<> will be invalid once the code comes out of the function*
 
@@ -62,4 +62,4 @@ int main() {
 
 ```
 
-*In the example above, "Wp" will be invalid in main() as it doesn't takes the ownership and was destroyed by shared_ptr<> before coming out of func() scope*
+*In the example above, "Wp" will be invalid in main() as it doesn't take the ownership and was destroyed by shared_ptr<> before coming out of the func() scope*
