@@ -12,9 +12,9 @@
 
 ### 2.2 unique_ptr : *No need to clear memory explicitly*
 
-*Like shared_ptr<>, there is no need to call delete or clean the memory in explicit manner. The unique pointer  will take care of it once it goes out of scope*
+*Like shared_ptr<>, there is no need to call delete or clean the memory in an explicit manner. The unique pointer  will take care of it once it goes out of scope*
 
-*here is the example of usage with class Sample*
+*Here is the example of usage with class Sample*
 
 ```
 class Sample {
@@ -30,13 +30,13 @@ int main() {
 }
 
 ```
-*In this example above you can see the Destructor getting called as a result of releasing memory*
+*In this example above, we can see the Destructor is getting called as a result of releasing memory*
 
 ### 2.3 Difference with shared_ptr<> : *Ownership cannot be transferred*
 
-*shared_ptr<> maintains reference counts where more than one shared_ptr<> can refere to a single object.*
+*shared_ptr<> maintains reference counts where more than one shared_ptr<> can refer to a single object.*
 
-*This is prevented by unique_ptr<> and the reason behind naming it as unique. In unique_ptr<>, one and only one unique_ptr<> has the Ownership of the Object and manages its lifetime. Look at the code below for example*
+*This is prevented by unique_ptr<> and the reason behind naming it as unique. In unique_ptr<>, one and only one unique_ptr<> has the Ownership of the Object and manages its lifetime. Look at the code below for an example*
 
 ```
 int main() {
@@ -49,7 +49,7 @@ int main() {
 
 ### 2.4 The Move Semantics : Transferring unique_ptr<> Ownership
 
-*Its possible to transfer the ownership using std::move(). However once std::move() is called then moved pointer will no longer hold the ownership. To understand look at the example code below*
+*Its possible to transfer the ownership using std::move(). However, once std::move() is called then moved pointer will no longer hold the ownership. To understand look at the example code below*
 
 ```
 int main() {
@@ -64,7 +64,7 @@ int main() {
 
 ### 2.5 Ownership of unique_ptr<> : Returning from a Function
 
-*Just like shared_ptr<>, unique_ptr<> can also be returned from a Function. To understand look at code below which is exactly similar to what we did with shared_ptr<>*
+*Just like shared_ptr<>, unique_ptr<> can also be returned from a Function. To understand look at the code below which is exactly similar to what we did with shared_ptr<>*
 
 ```
 class Sample {
@@ -114,7 +114,7 @@ unique_ptr<Sample> Func() {
 ```
 ### 2.6 unique_ptr<> : usage of make_unique<>()
 
-*The* ***C++14*** *specification has added the support of make_unique<>(). its usage is similar to that of make_shared<>() and should be used instead of* **new**
+*The* ***C++14*** *specification has added the support of make_unique<>(). Its usage is similar to that of make_shared<>() and should be used instead of* **new**
 
 ```
 class Sample {
@@ -130,7 +130,7 @@ int main() {
 ```
 ## 2.7 : Using uniqoe_ptr<> for Arrays
 
-_Unlike shared_ptr<>, unique_ptr<> is quiet tolerat to the creation of arrays. It can be done simply by write the following code with make_unique()_ 
+_Unlike shared_ptr<>, unique_ptr<> is quite tolerant to the creation of arrays. It can be done simply by writing the following code with make_unique()_ 
 
 ```
 unique_ptr<A[]> sp = make_unique<A[]>(10);
