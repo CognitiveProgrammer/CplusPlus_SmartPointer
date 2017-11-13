@@ -22,9 +22,9 @@ int main() {
 
 ### 4.3 std::move : *usage with unique_ptr<>*
 
-*shared_ptr<>, as the name suggests, multiple pointers can share the ownership with the help of reference count.
+*shared_ptr<>, as the name suggests, multiple pointers can share the ownership with the help of reference counts*.
 
-However, std::move behaves in the similar way as with unique_ptr<>. it will transfer the ownership (and not increment the reference count) of the shared_ptr*
+*However, std::move behaves in the similar way as with unique_ptr<>. It will transfer the ownership (and not increment the reference count) of the shared_ptr*
 
 ```
 int main() {
